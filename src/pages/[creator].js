@@ -33,13 +33,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CreatorPage({ priceInUSD, priceInRLY, rallyJSON, rallyError }) {
+function CreatorPage({ priceInUSD, priceInRLY, rallyJSON, communityJSON, rallyError }) {
   const classes = useStyles();
 
   const items = [
     {
       title: "Coin Price",
       description: "$" + priceInUSD,
+      image: rallyJSON.imageUrl,
+    },
+    {
+      title: "Members of Community",
+      description: communityJSON.totalSupporters + " supporters",
       image: rallyJSON.imageUrl,
     },
   ];
@@ -63,40 +68,40 @@ function CreatorPage({ priceInUSD, priceInRLY, rallyJSON, rallyError }) {
             className={classes.itemsContainer}
           >
             {items.map((item, index) => (
-            <Grid
-              className={classes.row}
-              container={true}
-              item={true}
-              alignItems="center"
-              spacing={4}
-              key={index}
-            >
-              <Grid item={true} xs={12} md={6}>
-                <Box
-                  textAlign={{
-                    xs: "center",
-                    md: "left",
-                  }}
-                >
-                  <Typography variant="h5" gutterBottom={true}>
-                    {item.title}
-                  </Typography>
-                  <Typography variant="subtitle1">
-                    {item.description}
-                  </Typography>
-                </Box>
+              <Grid
+                className={classes.row}
+                container={true}
+                item={true}
+                alignItems="center"
+                spacing={4}
+                key={index}
+              >
+                <Grid item={true} xs={12} md={6}>
+                  <Box
+                    textAlign={{
+                      xs: "center",
+                      md: "left",
+                    }}
+                  >
+                    <Typography variant="h5" gutterBottom={true}>
+                      {item.title}
+                    </Typography>
+                    <Typography variant="subtitle1">
+                      {item.description}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item={true} xs={12} md={6}>
+                  <figure className={classes.figure}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={classes.image}
+                    />
+                  </figure>
+                </Grid>
               </Grid>
-              <Grid item={true} xs={12} md={6}>
-                <figure className={classes.figure}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={classes.image}
-                  />
-                </figure>
-              </Grid>
-            </Grid>
-          ))}
+            ))}
           </Container>
         </Container>
       </Section>
@@ -118,8 +123,10 @@ CreatorPage.getInitialProps = async (ctx) => {
 
   let symbol = new String(creator).toLowerCase()
   const priceData = await fetch(`https://api.rally.io/v1/creator_coins/${symbol}/price`)
+  const communityData = await fetch(`https://api.rally.io/v1/creator_coins/${symbol}/summary`)
   const rallyData = await fetch(`https://api.rally.io/api/creator-coins/${symbol}`)
   const priceJSON = await priceData.json()
+  const communityJSON = await communityData.json()
   const rallyJSON = await rallyData.json()
   let priceInUSD = parseFloat(priceJSON.priceInUSD).toFixed(2)
   let priceInRLY = parseFloat(priceJSON.priceInRLY).toFixed(2)
@@ -128,8 +135,9 @@ CreatorPage.getInitialProps = async (ctx) => {
   console.log(rallyError)
   console.log(rallyJSON)
   console.log(priceJSON)
+  console.log(communityJSON)
 
-  return { priceInUSD, priceInRLY, rallyJSON, rallyError };
+  return { priceInUSD, priceInRLY, rallyJSON, communityJSON, rallyError };
 }
 
 export default CreatorPage;
