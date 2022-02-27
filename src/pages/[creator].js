@@ -47,6 +47,11 @@ function CreatorPage({ priceInUSD, priceInRLY, rallyJSON, communityJSON, rallyEr
       description: communityJSON.totalSupporters + " supporters",
       image: rallyJSON.imageUrl,
     },
+    {
+      title: "Total Transactions",
+      description: communityJSON.totalTransaction + " transactions",
+      image: rallyJSON.imageUrl,
+    },
   ];
 
   return (
