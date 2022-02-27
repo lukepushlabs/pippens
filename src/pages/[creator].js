@@ -10,7 +10,7 @@ import SectionHeader from "components/SectionHeader";
 
 const useStyles = makeStyles((theme) => ({
   itemsContainer: {
-    marginTop: 60,
+    marginTop: 10,
   },
   row: {
     // Reverse every other row
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   figure: {
-    maxWidth: 300,
+    maxWidth: 200,
     margin: "30px auto",
   },
   image: {
