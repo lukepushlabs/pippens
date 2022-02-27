@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps }) {
         <>
           <Navbar
             color="default"
-            logo="https://uploads.divjoy.com/logo.svg"
-            logoInverted="https://uploads.divjoy.com/logo-white.svg"
+            logo="/logo-dark.png"
+            logoInverted="logo-dark.png"
           />
 
           <Component {...pageProps} />
@@ -22,10 +22,10 @@ function MyApp({ Component, pageProps }) {
             size="normal"
             bgImage=""
             bgImageOpacity={1}
-            description="A short description of what you do here"
-            copyright={`© ${new Date().getFullYear()} Company`}
-            logo="https://uploads.divjoy.com/logo.svg"
-            logoInverted="https://uploads.divjoy.com/logo-white.svg"
+            description="The Web3 creator profile."
+            copyright={`© ${new Date().getFullYear()} Pulse`}
+            logo="/logo-dark.png"
+            logoInverted="logo-dark.png"
             sticky={true}
           />
         </>
