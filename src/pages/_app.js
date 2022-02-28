@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           <Navbar
             color="default"
             logo="/logo-dark.png"
-            logoInverted="logo-dark.png"
+            logoInverted="logo-white.png"
           />
 
           <Component {...pageProps} />
@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
             description="The Web3 creator profile."
             copyright={`© ${new Date().getFullYear()} Pulse`}
             logo="/logo-dark.png"
-            logoInverted="logo-dark.png"
+            logoInverted="logo-white.png"
             sticky={true}
           />
        </DAppProvider> 

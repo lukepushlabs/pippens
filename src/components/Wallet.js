@@ -14,10 +14,11 @@ export default function WalletGate(props) {
           margin: 0,
           position: 'absolute',
           top: '40%',
-          transform: 'translateY(-50%)'
+          transform: 'translateY(-50%)',
+          textAlign: 'center',
+          width: '100%'
         }}>
-          <Grid container={true}>
-            <Grid item={true}>
+          <div>
               <Button
                 variant="contained"
                 color="primary"
@@ -26,8 +27,8 @@ export default function WalletGate(props) {
               >
                 Connect Using Metamask
               </Button>
-            </Grid> 
-            <Grid item={true}>
+            </div> 
+            <div style={{marginTop: 40}}>
               <Button
                 variant="contained"
                 color="secondary"
@@ -37,8 +38,7 @@ export default function WalletGate(props) {
               >
                 Connect As Guest
               </Button>
-            </Grid> 
-          </Grid> 
+          </div>
         </div>
       ) : (
         <>
