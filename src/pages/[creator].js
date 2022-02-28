@@ -1,11 +1,17 @@
 import React from "react";
 import Meta from "components/Meta";
+import WalletGate from "components/Wallet";
+import { ChainId, useEthers, DAppProvider } from "@usedapp/core";
 
 function CreatorPage({creator}) {
+  const {activateBrowserWallet, account } = useEthers();
+
   return (
     <>
       <Meta />
-      <h1>Test-{creator}</h1>
+      <WalletGate>
+        <h1>Test-{creator}</h1>
+      </WalletGate>
     </>
   );
 }

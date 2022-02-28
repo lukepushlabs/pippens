@@ -3,12 +3,17 @@ import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import { ThemeProvider } from "util/theme";
 import { QueryClientProvider } from "util/db";
+import { DAppProvider, ChainId } from "@usedapp/core";
+
+const DAPP_CONFIG = {
+  readOnlyChainId: ChainId.Mainnet
+}
 
 function MyApp({ Component, pageProps }) {
   return (
     <QueryClientProvider>
       <ThemeProvider>
-        <>
+        <DAppProvider config={DAPP_CONFIG}>
           <Navbar
             color="default"
             logo="/logo-dark.png"
@@ -28,7 +33,7 @@ function MyApp({ Component, pageProps }) {
             logoInverted="logo-dark.png"
             sticky={true}
           />
-        </>
+       </DAppProvider> 
       </ThemeProvider>
     </QueryClientProvider>
   );
