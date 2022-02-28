@@ -17,7 +17,7 @@ function IndexPage(props) {
         bgImage=""
         bgImageOpacity={1}
         title="Social Layer for Rally Communities"
-        subtitle="intimate creator communities need a space to organize and socialize USING the token."
+        subtitle="Intimate creator social token communities need a space to organize and socialize"
         image="https://hackathon.fwb.help/_next/image?url=%2Fassets%2Fflow-logo.png&w=1920&q=75"
         buttonText="Test it with any existing Rally token"
         buttonColor="primary"
